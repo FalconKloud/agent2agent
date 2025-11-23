@@ -1,4 +1,42 @@
+# Environment variables and secrets
 .env
+.env.local
+*.env
+
+# Virtual environments
 .venv/
+venv/
+env/
+ENV/
+
+# Python cache and compiled files
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Project specific
 /ai_docs/
+
+# UV lock files (optional - comment out if you want to track them)
+# uv.lock
+
+# Logs
+*.log

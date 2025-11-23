@@ -18,14 +18,18 @@ Before running the application locally, ensure you have the following installed:
 This will create a virtual environment in the `.venv` directory and install the required packages.
 
 ```bash
+cd a2a_simple
 uv venv
-source .venv/bin/activate
+source .venv/Scripts/activate  # On Windows
+# On Linux/Mac, use: source .venv/bin/activate
 ```
 
 ## 2. Run the Agent
 Open a terminal and run the server with the dummy agent:
 
 ```bash
+cd a2a_simple
+export UV_HTTP_TIMEOUT=120
 uv run .
 ```
 
@@ -35,6 +39,7 @@ The agent will be running on `http://localhost:9999`.
 Open a new terminal and run the test client:
 
 ```bash
+cd a2a_simple
 uv run --active test_client.py
 ```
 

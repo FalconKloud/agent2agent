@@ -22,39 +22,61 @@ Create a `.env` file in the root of the `a2a_friend_scheduling` directory with y
 GOOGLE_API_KEY="your_api_key_here" 
 ```
 
+# How to setup a Google Key
+https://ai.google.dev/
+Google AI Studio -> Get API Key -> Create API key
+Give a name "ExploreA2A"
+Default Gemini Project
+Create
+
+## Run Host Agent
+```bash
+cd a2a_friend_scheduling/host_agent_adk
+uv venv
+source .venv/Scripts/activate
+
+export UV_HTTP_TIMEOUT=120
+uv run --active --no-cache adk web
+
+```
+
 ## Run the Agents
 
 You will need to run each agent in a separate terminal window. The first time you run these commands, `uv` will create a virtual environment and install all necessary dependencies before starting the agent.
 
 ### Terminal 1: Run Kaitlynn Agent
 ```bash
-cd kaitlynn_agent_langgraph
+cd a2a_friend_scheduling/kaitlynn_agent_langgraph
 uv venv
-source .venv/bin/activate
+source .venv/Scripts/activate  # On Windows; use .venv/bin/activate on Linux/Mac
 uv run --active app/__main__.py
+OR
+uv run app/__main__.py
 ```
 
 ### Terminal 2: Run Nate Agent
 ```bash
-cd nate_agent_crewai
+cd a2a_friend_scheduling/nate_agent_crewai
 uv venv
-source .venv/bin/activate
+source .venv/Scripts/activate  # On Windows; use .venv/bin/activate on Linux/Mac
+export UV_HTTP_TIMEOUT=300
 uv run --active .
 ```
 
 ### Terminal 3: Run Karley Agent
 ```bash
-cd karley_agent_adk
+cd a2a_friend_scheduling/karley_agent_adk
 uv venv
-source .venv/bin/activate
+source .venv/Scripts/activate  # On Windows; use .venv/bin/activate on Linux/Mac
+export UV_HTTP_TIMEOUT=300
 uv run --active .
 ```
 
 ### Terminal 4: Run Host Agent
 ```bash
-cd host_agent_adk
+cd a2a_friend_scheduling/host_agent_adk
 uv venv
-source .venv/bin/activate
+source .venv/Scripts/activate  # On Windows; use .venv/bin/activate on Linux/Mac
 uv run --active adk web      
 ```
 
